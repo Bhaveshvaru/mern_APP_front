@@ -45,7 +45,7 @@ const StripeCheckout = ({
         console.log(response);
         const { status } = require(response);
         console.log('STATUS', status);
-       // cartEmpty();
+        // cartEmpty();
       })
       .catch((err) => console.log(err));
   };
@@ -53,7 +53,7 @@ const StripeCheckout = ({
   const showStripeButton = () => {
     return isAuthenticated() ? (
       <StripeCheckOut
-        stripeKey="pk_test_51GrMwNHWj5wEAALnR0FqtCdlPGHgQD9H62lnhpIOXQRhOVIuNuRp5qyM2L81IAnACyN3YbzNpf6uMReMTefOpZFx00FNrY2Xts"
+        stripeKey={process.env.STRIPEKEY}
         token={makePayment}
         amount={getFinalAmount() * 100}
         name="Buy Item"
